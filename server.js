@@ -30,7 +30,8 @@ app.get('/weather', (req, res) => {
     )
   })
   // res.send(weatherData.find(city => city.city_name.toLowerCase().includes(q.toLowerCase())));
-  res.send(weather)
+  console.log(weather);
+  res.send(weather);
 });
 
 app.get('/*', (req,res) => {
