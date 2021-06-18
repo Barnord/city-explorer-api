@@ -20,22 +20,6 @@ app.get('/', (req, res) => {
   res.send('Server says haaaaayyyyy');
 });
 
-// app.get('/weather', (req, res) => {
-//   let q = req.query.q;
-//   let lat = req.query.lat;
-//   let lon = req.query.lon;
-//   let location = weatherData.find(location => location.city_name==q);
-//   let weather = [];
-//   location.data.forEach(i => {
-//     weather.push(
-//       new Forecast(i.datetime, `Low of ${i.low_temp}, high of ${i.max_temp}, with ${i.weather.description}`)
-//     )
-//   })
-//   res.send(weatherData.find(city => city.city_name.toLowerCase().includes(q.toLowerCase())));
-//   console.log(weather);
-//   res.send(weather);
-// });
-
 app.get('/weather', async (req,res) => {
   let lat = req.query.lat
   let lon = req.query.lon
@@ -57,6 +41,7 @@ app.get('/weather', async (req,res) => {
 
 app.get('/*', (req,res) => {
   response.status(404).send('Sorry, route not found');
+  response.status(500).send('Something went wrong.');
 });
 
 app.listen(PORT, () => {console.log(`listening on port ${PORT}`);});
