@@ -1,5 +1,6 @@
 const axios = require('axios');
 const weatherKey = process.env.WEATHER_API_KEY
+const Forecast = require('../models/weather')
 
 let getWeather = async (req,res) => {
   let lat = req.query.lat
@@ -16,13 +17,6 @@ let getWeather = async (req,res) => {
   }
   catch(err) {
     console.error(err.message)
-  }
-}
-
-class Forecast {
-  constructor(date, description) {
-    this.date = date,
-    this.description = description
   }
 }
 
