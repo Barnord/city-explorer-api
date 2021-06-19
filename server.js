@@ -15,28 +15,10 @@ const { response } = require('express');
 const { default: axios } = require('axios');
 
 const routeHandlers = require('./routeHandlers');
-// app.get('/', routeHandlers.index);
-
 
 app.get('/weather', routeHandlers.getWeather)
 
-// app.get('/weather', async (req,res) => {
-//   let lat = req.query.lat
-//   let lon = req.query.lon
-//   try{
-//     let LocalForecast = await axios.get(`http://api.weatherbit.io/v2.0/forecast/daily?key=${weatherKey}&units=I&lat=${lat}&lon=${lon}`)
-//     let forecastOut = [] 
-//     LocalForecast.data.data.forEach(i => {
-//       forecastOut.push(
-//         new Forecast(i.datetime, `Low of ${i.low_temp}, high of ${i.high_temp}, with ${i.weather.description}`)
-//         )
-//     })
-//     res.send(forecastOut)
-//   }
-//   catch(err) {
-//     console.error(err.message)
-//   }
-// })
+app.get('/movies', routeHandlers.getMovies)
 
 app.get('/*', (req,res) => {
   response.status(404).send('Sorry, route not found');
@@ -44,12 +26,3 @@ app.get('/*', (req,res) => {
 });
 
 app.listen(PORT, () => {console.log(`listening on port ${PORT}`);});
-
-// class Forecast {
-//   constructor(date, description) {
-//     this.date = date,
-//     this.description = description
-//   }
-// }
-
-// weatherData.forEach

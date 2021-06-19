@@ -1,4 +1,4 @@
 let getWeather = require('./getWeather')
-// let getMovies = require('./getMovies')
+let getMovies = require('./getMovies')
 
-module.exports = { getWeather };
+module.exports = { getWeather, getMovies };
